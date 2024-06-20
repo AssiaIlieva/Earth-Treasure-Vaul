@@ -1,4 +1,4 @@
-const {Schema, model, MongooseError} = require('mongoose');
+const {Schema, model, MongooseError, default: mongoose} = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
@@ -12,7 +12,17 @@ const userSchema = new Schema({
         type: String,
         minLength: 4,
         required: [true, 'Password is required'],
-    }
+    },
+    createdStones: [{
+        type: mongoose.Types.ObjectId,
+        default: [],
+        ref: 'Stone',
+    }],
+    likedStones: [{
+        type: mongoose.Types.ObjectId,
+        default: [],
+        ref: 'Stone',
+    }]
 });
 
 userSchema.pre('save', async function(){

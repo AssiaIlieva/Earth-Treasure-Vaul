@@ -5,80 +5,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/styles/styles.css" />
     <title>Details Page</title>
-    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
+    <div id="wrapper">
+        <header>
+            <!-- Navigation -->
+            <nav>
+                <div>
+                    <a href="#">Home</a>
+                    <a href="#">Dashboard</a>
+                    <a href="#">Search</a>
+                </div>
 
-    <!-- In case of error, you should display div with class "errorContainer" -->
-    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+                <!-- Logged-in users -->
+                <div class="user">
+                    <a href="#">Add Stones</a>
+                    <a href="#">Logout</a>
+                </div>
 
-    <!-- <div>
-            <div class="errorContainer">
-                <p>Error</p>
-            </div>
-        </div> -->
+                <!-- Guest users -->
+                <div class="guest">
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+            </nav>
+        </header>
 
-    <div class="navigation">
-        <nav>
-            <img src="./images/logo.png">
-            <ul>
-                <!-- Guest users and Logged users -->
-                <li><a href="#">Home</a></li>
-                <li><a href="#">All Courses</a></li>
-                <!--For guest users-->
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <!--For loggin users-->
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Create Course Offers</a></li>
-                <li><a href="#">Logout</a></li>
+        <main class="details">
+            <!-- Details page -->
+            <section id="details">
+                <div id="details-wrapper">
+                    <p id="details-title">Name: Beryl</p>
+                    <div id="img-wrapper">
+                        <img src="./static/images/beryl.webp" />
+                    </div>
+                    <div id="info-wrapper">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Category: <span id="details-category">Cyclosilicate</span>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>Color: <span id="details-color">Green</span></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Location: <span id="details-location">Colombia</span></p>
+                                </td>
+                                <td>
+                                    <p>Formula: <span id="details-formula">Be3Al2Si6O18</span></p>
+                                </td>
+                            </tr>
+                        </table>
+                        <p>Description: <span id="details-description">Beryl is a common mineral, and it is widely distributed in nature. It is found most commonly in granitic pegmatites, but also occurs in mica schists, such as those of the Ural Mountains, and in limestone in Colombia. It is less common in ordinary granite and is only infrequently found in nepheline syenite.</span></p>
+                    </div>
 
-            </ul>
-        </nav>
+                    <!--Edit and Delete are only for creator-->
+                    <div id="action-buttons">
+                        <a href="#" id="edit-btn">Edit</a>
+                        <a href="#" id="delete-btn">Delete</a>
+                        <a href="#" id="like-btn">Like</a>
+                        <p id="already-liked">You already liked this stone!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>@EarthTreasureVaul</p>
+        </footer>
     </div>
-
-
-    <main>
-        <div class="details-container">
-            <div class="details-container-image">
-                <img
-                    src="https://wpvip.edutopia.org/wp-content/uploads/2022/10/johnson-169hero-effectivelearn-shutterstock_1.jpg?w=2880&quality=85">
-            </div>
-            <div class="details-container-info">
-                <h2>Title: Classroom Management Essentials</h2>
-                <h3>Type: Management</h3>
-                <h3>Certificate: Yes</h3>
-                <h3>Price: €35</h3>
-                <h3>By: john@abv.bg</h3>
-                <!--If there are sign up users-->
-                <h4>Signed By: cate.brown, nikolas.p</h4>
-                <!--If there are no sign up users-->
-                <h4>Nobody has signed in for this course yet</h4>
-            </div>
-            <div class="details-container-content">
-                <p>Curabitur fringilla nec urna sit amet eleifend. Suspendisse sodales vitae tellus sit amet dictum.
-                    Vivamus condimentum blandit interdum. Donec ac placerat enim. Pellentesque elementum condimentum
-                    massa, id condimentum lorem maximus sit amet. Vivamus accumsan imperdiet urna, eget malesuada felis
-                    iaculis quis. Nunc orci neque, blandit nec lorem eu, mattis porta erat. Etiam et imperdiet tellus.
-                    Nulla ac gravida tellus.</p>
-            </div>
-            <div class="btn-container">
-                <!-- Only for registered user and creator of the course-->
-                <a href="#">Edit</a>
-                <a href="#">Delete</a>
-                <!-- logged in user who has not yet sign up for the course-->
-                <a href="#">Sign up</a>
-                <!-- logged in user who has already sign up for the course-->
-                <p class="sign-up">You've already signed up for this course!</p>
-
-            </div>
-        </div>
-    </main>
-
-    <footer>Back-End 2023</footer>
-
 </body>
 
 </html>

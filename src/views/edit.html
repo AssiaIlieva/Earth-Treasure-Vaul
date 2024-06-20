@@ -5,72 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/styles/styles.css" />
     <title>Edit Page</title>
-    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
+    <div id="wrapper">
+        <header>
+            <!-- Navigation -->
+            <nav>
+                <div>
+                    <a href="#">Home</a>
+                    <a href="#">Dashboard</a>
+                    <a href="#">Search</a>
+                </div>
 
-    <!-- In case of error, you should display div with class "errorContainer" -->
-    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+                <!-- Logged-in users -->
+                <div class="user">
+                    <a href="#">Add Stones</a>
+                    <a href="#">Logout</a>
+                </div>
 
-    <!-- <div>
-            <div class="errorContainer">
-                <p>Error</p>
-            </div>
-        </div> -->
+                <!-- Guest users -->
+                <div class="guest">
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+            </nav>
+        </header>
 
-    <div class="navigation">
-        <nav>
-            <img src="./images/logo.png">
-            <ul>
-                <!-- Guest users and Logged users -->
-                <li><a href="#">Home</a></li>
-                <li><a href="#">All Courses</a></li>
-                <!--For guest users-->
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <!--For loggin users-->
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Create Course Offers</a></li>
-                <li><a href="#">Logout</a></li>
+        <main class="edit">
+            <!-- Edit Page (Only for logged-in users) -->
+            <section id="edit">
+                <div class="form">
+                    <h2>Edit item</h2>
+                    <form class="edit-form">
+                        <input type="text" name="" id="name" placeholder="Name" value="Amethyst" />
+                        <input type="text" name="" id="category" placeholder="Category" value="Silicate mineral" />
+                        <input type="text" name="" id="color" placeholder="Color" value="Purple" />
+                        <input type="text" name="" id="stone-img" placeholder="Image" value="https://m.media-amazon.com/images/I/71TIuyGllzS._AC_UF894,1000_QL80_.jpg" />
+                        <input type="text" name="" id="location" placeholder="Location" value="Artigas, Uruguay" />
+                        <input type="text" name="" id="formula" placeholder="Formula" value="SiO2" />
+                        <textarea id="description" placeholder="Description..."
+                            name="">Amethyst is a violet variety of quartz. The name comes from the Koine Greek, a reference to the belief that the stone protected its owner from drunkenness. Ancient Greeks wore amethyst and carved drinking vessels from it in the belief that it would prevent intoxication. Amethyst, a semiprecious stone, is often used in jewelry.</textarea>
 
-            </ul>
-        </nav>
+                        <button type="submit">Edit</button>
+                    </form>
+                </div>
+            </section>
+        </main>
     </div>
-
-
-    <main>
-        <section id="edit-container">
-            <div class="edit-container-info">
-                <h1>Edit Course</h1>
-                <form>
-                    <label>Title:</label>
-                    <input name="" type="text" id="title" value="Classroom Management Essentials">
-
-                    <label>Type:</label>
-                    <input name="" type="text" id="type" value="Management">
-
-                    <label>Certificate:</label>
-                    <input name="" type="text" id="certificate" value="Yes">
-
-                    <label>Image:</label>
-                    <input name="" type="text" id="image" placeholder="http://..." value="https://cdn.pixabay.com/photo/2020/08/09/14/25/business-5475660_1280.jpg">
-
-                    <label>Description:</label>
-                    <textarea id="content" name="">Learn how to manage your classroom and spend more time teaching rather than disciplining</textarea>
-
-                    <label>Price:</label>
-                    <input name="" type="number" id="price" value="25">
-
-                    <input type="submit" id="btn" value="Edit">
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>Back-End 2023</footer>
-
+    <footer>
+        <p>@EarthTreasureVaul</p>
+    </footer>
 </body>
 
 </html>

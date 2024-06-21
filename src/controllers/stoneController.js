@@ -24,4 +24,11 @@ router.get('/', async (req, res) => {
     res.render('stones/catalog', {stones});
   });
 
+router.get('/:stoneId/details', async (req, res) => {
+    const stone = await stoneService.getOne(req.params.stoneId).lean();
+    const isOwner = stone.owner == req.user?._id;
+    const isLiked = stone.likedList.some(user => user._id == req.user?._id);
+    console.log(isOwner, isLiked);
+    res.render('stones/details', {...stone, isOwner, isLiked})
+});
 module.exports = router;

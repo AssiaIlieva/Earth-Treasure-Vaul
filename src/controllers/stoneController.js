@@ -31,4 +31,10 @@ router.get('/:stoneId/details', async (req, res) => {
     console.log(isOwner, isLiked);
     res.render('stones/details', {...stone, isOwner, isLiked})
 });
+
+router.get('/:stoneId/like', async (req, res) => {
+    await stoneService.like(req.params.stoneId, req.user._id);
+    res.redirect(`/stones/${req.params.stoneId}/details`);
+});
+
 module.exports = router;

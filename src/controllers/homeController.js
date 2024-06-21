@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const {isAuth} = require('../middlewares/authMiddlware');
+const stoneService = require('../services/stoneService');
 
-router.get('/', (req, res) => {
-    res.render('home')
+router.get('/', async (req, res) => {
+    const latestStones = await stoneService.getLatest().lean();
+    res.render('home', {latestStones})
 });
 
 // TODO: Delete this

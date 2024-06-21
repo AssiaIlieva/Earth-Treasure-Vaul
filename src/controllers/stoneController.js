@@ -37,4 +37,19 @@ router.get('/:stoneId/like', async (req, res) => {
     res.redirect(`/stones/${req.params.stoneId}/details`);
 });
 
+
+router.get('/:stoneId/delete', isStoneOwner, async(req, res) => {
+    await stoneService.delete(req.params.stoneId);
+    res.redirect('/stones')
+});
+
+async function isStoneOwner(req, res, next) {
+    const stone = await stoneService.getOne(req.params.stoneId).lean();
+    if(stone.owner != req.user?._id) {
+        return res.redirect(`/stones/${req.params.stoneId}/details`);
+    }
+    req.stone = stone
+    next();
+};
+
 module.exports = router;

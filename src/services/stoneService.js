@@ -12,6 +12,8 @@ exports.create = async (userId, stoneData) => {
     return createdStone;
 };
 
+exports.delete = (stoneId) => Stone.findByIdAndDelete(stoneId);
+
 exports.getAll = () => Stone.find();
 
 exports.getLatest = () => Stone.find().sort({createdAt: -1}).limit(3);

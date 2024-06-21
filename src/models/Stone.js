@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const stoneSchema = new mongoose.Schema({
+    
     name: {
         type: String,
         minLength: 2,
@@ -38,6 +39,7 @@ const stoneSchema = new mongoose.Schema({
         minLength: 10,
         required: true,
     },
+    // createdAt: Date,
     likedList: [{
         type: mongoose.Types.ObjectId,
         default: [],
@@ -46,8 +48,15 @@ const stoneSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Types.ObjectId,
         ref: 'User'
-    },
-});
+    }}, {
+        timestamps: true // Това добавя createdAt и updatedAt полета
+    });
+
+// stoneSchema.pre('save', function(){
+//     if(!this.createdAt){
+//         this.createdAt = Date.now();
+//     }
+// })
 
 const Stone = mongoose.model('Stone', stoneSchema);
 

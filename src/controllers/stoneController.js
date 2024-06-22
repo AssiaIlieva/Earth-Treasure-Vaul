@@ -28,7 +28,6 @@ router.get('/:stoneId/details', async (req, res) => {
     const stone = await stoneService.getOne(req.params.stoneId).lean();
     const isOwner = stone.owner == req.user?._id;
     const isLiked = stone.likedList.some(user => user._id == req.user?._id);
-    console.log(isOwner, isLiked);
     res.render('stones/details', {...stone, isOwner, isLiked})
 });
 
@@ -37,6 +36,19 @@ router.get('/:stoneId/like', async (req, res) => {
     res.redirect(`/stones/${req.params.stoneId}/details`);
 });
 
+router.get('/:stoneId/edit', isStoneOwner, async (req, res) => {
+    res.render('stones/edit', {...req.stone});
+});
+
+router.post('/:stoneId/edit', isStoneOwner, async(req, res) => {
+    const stoneData = req.body;
+    try {
+        await stoneService.edit(req.params.stoneId, stoneData);
+        res.redirect(`/stones/${req.params.stoneId}/details`)
+    } catch (error) {
+        res.render('stones/edit', {...stoneData, error: getErrorMessage(error)})
+    }
+});
 
 router.get('/:stoneId/delete', isStoneOwner, async(req, res) => {
     await stoneService.delete(req.params.stoneId);

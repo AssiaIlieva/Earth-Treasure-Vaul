@@ -7,10 +7,17 @@ router.get('/', async (req, res) => {
     res.render('home', {latestStones})
 });
 
-// TODO: Delete this
-router.get('/authorize-test', isAuth, (req, res) => {
-    console.log(req.user);
-    res.send('Your are authorized');
+router.get('/search', async (req, res) => {
+    const {name} = req.query;
+    
+    let stones = []
+    if(name){
+        stones = await stoneService.search(name).lean();
+    }else{
+        stones = await stoneService.getAll().lean();
+    }
+    res.render('search',{stones, name})
 })
+
 
 module.exports = router

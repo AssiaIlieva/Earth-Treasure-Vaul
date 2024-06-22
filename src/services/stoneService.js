@@ -27,4 +27,13 @@ exports.getOneWithOwner = (stoneId) => this.getOne(stoneId).populate('owner').po
 exports.like = async (stoneId, userId) => {
     await Stone.findByIdAndUpdate(stoneId, {$push: {likedList: userId}});
     await User.findByIdAndUpdate(userId, {$push: {likedStones: stoneId}});
+};
+
+exports.search = (name) => {
+    let query = {};
+
+    if(name){
+        query.name = new RegExp(name, 'i');
+    }
+    return Stone.find(query);
 }
